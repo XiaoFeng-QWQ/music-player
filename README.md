@@ -1,5 +1,7 @@
 # Music-player 音乐播放器
 
+[演示地址](https://www.xcccx.top/)
+
 ## 一个集成了[APlayer(音乐播放器)](https://github.com/DIYgod/APlayer) + [MDUI(设置UI)](https://github.com/zdhxiong/mdui) + [jquery(网页DOM操作)](https://github.com/jquery/jquery)
 接入方法：在你的网站源码添加：
 ```html
