@@ -1,7 +1,7 @@
 # Music-player 音乐播放器
 
 [演示地址](https://www.xcccx.top/)
-
+![1707021562249.png](https://imag.xcccx.top/uploads/2024/02/04/65bf14fceb865.png)
 ## 一个集成了[APlayer(音乐播放器)](https://github.com/DIYgod/APlayer) + [MDUI(设置UI)](https://github.com/zdhxiong/mdui) + [jquery(网页DOM操作)](https://github.com/jquery/jquery)
 如何使用？
 ```html
