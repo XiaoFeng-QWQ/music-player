@@ -14,7 +14,7 @@
 <script src="init.js"></script>
 
 <!-- 然后在要打开设置的元素上添加 mdui-dialog="{target: '#musicPlayerSettings'}" -->
-<button class="mdui-btn mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#musicPlayerSettings'}">
+<button type="button" class="mdui-btn mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#musicPlayerSettings'}">
     打开音乐播放器设置
 </button>
 
