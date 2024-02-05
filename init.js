@@ -80,6 +80,13 @@ musicPlayerContainerInit += "<\/div>";
 musicPlayerContainerInit += "<\/div>";
 musicPlayerContainerInit += "<div id=\"meting-js\"><\/div>";
 
+//获取正确的相对（绝对）路径
+var scriptElement = document.currentScript;
+var scriptUrl = scriptElement.src;
+var scriptPath = scriptUrl.substring(0, scriptUrl.lastIndexOf('/'));
+//Debug
+//console.debug("Debug:当前模块脚本的URL：" + scriptPath);
+
 window.addEventListener('load', function () {
     let start = performance.now();
 
@@ -99,9 +106,9 @@ window.addEventListener('load', function () {
         "https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js",
         "https://api.now.cc/public/js/MusicPlayer/MusicPlayer.js",
         "https://api.now.cc/public/js/MusicPlayer/Meting.js",
-        "musicPlayerConfiguration.js",
-        "musicPlayerSettings.js",
-        "mian.js"
+        scriptPath + "/musicPlayerConfiguration.js",
+        scriptPath + "/musicPlayerSettings.js",
+        scriptPath + "/mian.js"
     ];
     scripts.forEach(function (src) {
         loadScript(src);
