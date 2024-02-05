@@ -23,7 +23,6 @@ function musicPlayerConfiguration(method, key, value) {
                 });
             }
         } else {
-
             //返回默认值
             return {
                 enable: true,
