@@ -86,7 +86,7 @@ window.addEventListener('load', function () {
     var element = document.getElementById('musicPlayerContainer');
     element.innerHTML = musicPlayerContainerInit;
 
-    //加载js
+    //加载js，顺序不能反
     function loadScript(src) {
         var script = document.createElement('script');
         script.src = src;
@@ -97,8 +97,10 @@ window.addEventListener('load', function () {
         "https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js",
         "https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js",
         "https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js",
-        "https://api.now.cc/public/js/MusicPlayer/MusicPlayer.js",
-        "https://api.now.cc/public/js/MusicPlayer/Meting.js",
+        //生成音乐播放器
+        "MusicPlayer.js",
+        "Meting.js",
+        //音乐播放器设置
         "musicPlayerConfiguration.js",
         "musicPlayerSettings.js",
         "mian.js"
