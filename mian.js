@@ -74,15 +74,12 @@ const ContainerHtml = `
 </div>
 <div id="meting-js"></div>
 `
-
 console.log(
     `%c音乐播放器设置由 https://github.com/XiaoFeng-QWQ 提供技术支持\nMusic player is set to provide technical support by https://github.com/XiaoFeng-QWQ\n%c Version 版本: %c ${version} `,
     'color: #3eaf7c; font-size: 16px;line-height:30px;',
     'background: #35495e; padding: 4px; border-radius: 3px 0 0 3px; color: #fff',
     'background: #41b883; padding: 4px; border-radius: 0 3px 3px 0; color: #fff',
 )
-
-
 
 /**
  * 检测更新
