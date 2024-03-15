@@ -14,7 +14,7 @@ $(function () {
  * 
  */
 function musicPlayerSettingsUpdate() {
-    const upDataUrl = 'https://api.github.com/repos/dfggmc/dfgg-offiial-website2.0/releases/latest'
+    const upDataUrl = 'https://api.github.com/repos/XiaoFeng-QWQ/music-player/releases/latest'
     $.ajax({
         type: "GET",
         url: upDataUrl,
