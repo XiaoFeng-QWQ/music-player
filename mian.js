@@ -3,9 +3,76 @@ const ContainerHtml = `
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
 <style>
-#music-player-container #music-player-settings{border-radius:10px;display:none}#music-player-container #music-player-settings .mdui-switch{height:14.3}#music-player-container #music-player-settings button{margin:0.4rem}#music-player-container #music-player-settings .mdui-icon{margin-right:5px}#music-player-container #music-player-settings-update{border-radius:10px;display:none}#music-player-container #music-player-settings-update .mdui-dialog-content{padding-top:30px}
+    #music-player-container #music-player-settings {
+        border-radius: 10px;
+        display: none;
+    }
+
+    #music-player-container #music-player-settings .mdui-switch {
+        height: 14.3;
+    }
+
+    #music-player-container #music-player-settings button {
+        margin: 0.4rem;
+    }
+
+    #music-player-container #music-player-settings .mdui-icon {
+        margin-right: 5px;
+    }
+
+    #music-player-container #music-player-settings-update {
+        border-radius: 10px;
+        display: none;
+    }
+
+    #music-player-container #music-player-settings-update .mdui-dialog-content {
+        padding-top: 30px;
+    }
 </style>
-<div id="music-player-settings"class="mdui-dialog"><div class="mdui-dialog-title mdui-color-grey-900"><i class="mdui-icon material-icons">queue_music</i>音乐播放器设置<i class="music-playlist-version"></i></div><div class="mdui-dialog-content"><ul class="mdui-list"><li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">music_note</i><div class="mdui-list-item-title">音乐播放器开关</div><div class="mdui-list-item-content"><label class="mdui-switch"><input class="music-playlist-switch"name="music-playlist-switch"type="checkbox"><i class="mdui-switch-icon"></i></label></div></li><li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">play_arrow</i><div class="mdui-list-item-title">自动播放开关</div><div class="mdui-list-item-content"><label class="mdui-switch"><input class="music-playlist-autoplay"name="music-playlist-autoplay"type="checkbox"><i class="mdui-switch-icon"></i></label></div></li><li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">wb_cloudy</i><div class="mdui-list-item-title">音乐平台</div><div class="mdui-list-item-content"><select class="mdui-select music-playlist-server"name="music-playlist-server"><option value="netease">网易云音乐（默认）</option><option value="tencent">QQ音乐</option><option value="kugou">酷狗音乐</option><option value="xiami">虾米音乐</option><option value="baidu">百度音乐</option></select><i class="mdui-select-icon"></i></div></li><li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">vpn_key</i><div class="mdui-list-item-title">音乐歌单ID</div><div class="mdui-list-item-content music-playlist-id-input"><input class="mdui-textfield-input music-playlist-id"name="music-playlist-id"type="number"></div></li><li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">code</i><div class="mdui-list-item-title">自定义歌词样式</div><div class="mdui-list-item-content mdui-textfield"><textarea class="mdui-textfield-input music-playlist-lyric-style"rows="4"placeholder='JSON格式，不用加<style></style>例子：{"background-color":"#98bf21","top": "30px"}'></textarea></div></li></ul></div><div class="mdui-dialog-actions mdui-color-grey-100"><button class="mdui-btn mdui-ripple mdui-text-color-black-text"mdui-dialog-confirm onclick="musicPlayerSaveSettings()"><i class="mdui-icon material-icons">done_all</i>保存配置并生效</button><button class="mdui-btn mdui-ripple mdui-text-color-black-text"mdui-dialog-cancel onclick="musicPlayerReadConfiguration()"><i class="mdui-icon material-icons">cancel</i>取消</button><button class="mdui-btn mdui-ripple mdui-text-color-black-text"mdui-dialog-close mdui-dialog="{target: '#music-player-settings-update'}"onclick="musicPlayerSettingsUpdate()"><i class="mdui-icon material-icons">update</i>检查更新</button></div></div><div id="music-player-settings-update"class="mdui-dialog"><div class="mdui-dialog-title mdui-color-grey-900"><i class="mdui-icon material-icons">queue_music</i>音乐播放器设置-<i class="mdui-icon material-icons">update</i>检测更新</div><div class="mdui-dialog-content mdui-typo"><i>检查更新中……</i><div class="mdui-progress"><div class="mdui-progress-indeterminate"></div></div></div><div class="mdui-dialog-actions mdui-color-grey-100"><button class="mdui-btn mdui-ripple mdui-text-color-black-text"mdui-dialog-close mdui-dialog="{target: '#music-player-settings'}"><i class="mdui-icon material-icons">arrow_back</i>返回设置</button></div></div><div id="meting-js"></div>
+<div id="music-player-settings" class="mdui-dialog">
+	<div class="mdui-dialog-title mdui-color-grey-900"><i class="mdui-icon material-icons">queue_music</i>音乐播放器设置<i class="music-playlist-version"></i></div>
+	<div class="mdui-dialog-content">
+		<ul class="mdui-list">
+			<li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">music_note</i>
+				<div class="mdui-list-item-title">音乐播放器开关</div>
+				<div class="mdui-list-item-content"><label class="mdui-switch"><input class="music-playlist-switch" name="music-playlist-switch" type="checkbox"><i class="mdui-switch-icon"></i></label></div>
+			</li>
+			<li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">play_arrow</i>
+				<div class="mdui-list-item-title">自动播放开关</div>
+				<div class="mdui-list-item-content"><label class="mdui-switch"><input class="music-playlist-autoplay" name="music-playlist-autoplay" type="checkbox"><i class="mdui-switch-icon"></i></label></div>
+			</li>
+			<li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">wb_cloudy</i>
+				<div class="mdui-list-item-title">音乐平台</div>
+				<div class="mdui-list-item-content"><select class="mdui-select music-playlist-server" name="music-playlist-server">
+						<option value="netease">网易云音乐（默认）</option>
+						<option value="tencent">QQ音乐</option>
+						<option value="kugou">酷狗音乐</option>
+						<option value="xiami">虾米音乐</option>
+						<option value="baidu">百度音乐</option>
+					</select><i class="mdui-select-icon"></i></div>
+			</li>
+			<li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">vpn_key</i>
+				<div class="mdui-list-item-title">音乐歌单ID</div>
+				<div class="mdui-list-item-content music-playlist-id-input"><input class="mdui-textfield-input music-playlist-id" name="music-playlist-id" type="number"></div>
+			</li>
+			<li class="mdui-list-item"><i class="mdui-list-item-icon mdui-icon material-icons">code</i>
+				<div class="mdui-list-item-title">自定义歌词样式</div>
+				<div class="mdui-list-item-content mdui-textfield"><textarea class="mdui-textfield-input music-playlist-lyric-style" rows="4" placeholder='JSON格式，不用加<style></style>例子：{"background-color":"#98bf21","top": "30px"}'></textarea></div>
+			</li>
+		</ul>
+	</div>
+	<div class="mdui-dialog-actions mdui-color-grey-100"><button class="mdui-btn mdui-ripple mdui-text-color-black-text" mdui-dialog-confirm onclick="musicPlayerSaveSettings()"><i class="mdui-icon material-icons">done_all</i>保存配置并生效</button><button class="mdui-btn mdui-ripple mdui-text-color-black-text" mdui-dialog-cancel onclick="musicPlayerReadConfiguration()"><i class="mdui-icon material-icons">cancel</i>取消</button><button class="mdui-btn mdui-ripple mdui-text-color-black-text" mdui-dialog-close mdui-dialog="{target: '#music-player-settings-update'}" onclick="musicPlayerSettingsUpdate()"><i class="mdui-icon material-icons">update</i>检查更新</button></div>
+</div>
+<div id="music-player-settings-update" class="mdui-dialog">
+	<div class="mdui-dialog-title mdui-color-grey-900"><i class="mdui-icon material-icons">queue_music</i>音乐播放器设置-<i class="mdui-icon material-icons">update</i>检测更新</div>
+	<div class="mdui-dialog-content mdui-typo"><i>检查更新中……</i>
+		<div class="mdui-progress">
+			<div class="mdui-progress-indeterminate"></div>
+		</div>
+	</div>
+	<div class="mdui-dialog-actions mdui-color-grey-100"><button class="mdui-btn mdui-ripple mdui-text-color-black-text" mdui-dialog-close mdui-dialog="{target: '#music-player-settings'}"><i class="mdui-icon material-icons">arrow_back</i>返回设置</button></div>
+</div>
+<div id="meting-js"></div>
 `
 
 console.log(
