@@ -722,7 +722,7 @@ class MusicPlayerSettings {
     /**
      * 主函数（入口函数）
      */
-    mian() {
+    main() {
         window.addEventListener('load', function () {
             //生成音乐播放器元素
             var element = document.getElementById('music-player-container');

@@ -2,7 +2,8 @@
 
 ## [演示地址](https://www.dfggmc.top/)
 
-![效果图](https://imag.xcccx.top/uploads/2024/02/04/65bf14fceb865.png)
+![效果图](/preview.png)
+![效果图2](/preview%20(2).png)
 
 ## 如何使用？
 ```html
@@ -15,6 +16,8 @@
 <!-- 添加ID为 music-player-container 元素 -->
 <div id="music-player-container"></div>
 
+<!-- 引入 -->
+
 <!-- 引入js -->
 <script src="mian.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -24,7 +27,7 @@
     // 新建类
     const musicPlayer = new MusicPlayerSettings();
     // 调用主函数
-    musicPlayer.init();
+    musicPlayer.main();
 </script>
 
 <!-- 完成! -->
