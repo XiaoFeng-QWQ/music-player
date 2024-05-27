@@ -328,7 +328,7 @@ class MusicPlayer {
 
 
 
-const version = '0.1.0'
+const version = '0.1.1'
 const ContainerHtml = `
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
