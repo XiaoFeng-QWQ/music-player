@@ -714,7 +714,7 @@ function musicPlayerSaveSettings() {
 /**
  * 音乐播放器设置
  * @author XiaoFengQWQ
- * @version 0.1.0
+ * @version 0.1.1
  * @link https://github.com/XiaoFeng-QWQ/music-player
  */
 class MusicPlayerSettings {
