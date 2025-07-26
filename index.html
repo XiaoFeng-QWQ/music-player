@@ -1,33 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
+    <title>XQFMusicPlayer &#x97f3;&#x4e50;&#x64ad;&#x653e;&#x5668;
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" rel="stylesheet">
-    <title>音乐播放器</title>
+    <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" type="text/css"
+        rel="stylesheet" />
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$=\#gh-light-mode-only],
+        .vscode-light img[src$=\#gh-dark-mode-only],
+        .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+        .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+    <style>
+        :root {
+            --color-note: #0969da;
+            --color-tip: #1a7f37;
+            --color-warning: #9a6700;
+            --color-severe: #bc4c00;
+            --color-caution: #d1242f;
+            --color-important: #8250df;
+        }
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-note: #2f81f7;
+                --color-tip: #3fb950;
+                --color-warning: #d29922;
+                --color-severe: #db6d28;
+                --color-caution: #f85149;
+                --color-important: #a371f7;
+            }
+        }
+    </style>
+    <style>
+        .markdown-alert {
+            padding: 0.5rem 1rem;
+            margin-bottom: 16px;
+            color: inherit;
+            border-left: .25em solid #888;
+        }
+
+        .markdown-alert>:first-child {
+            margin-top: 0
+        }
+
+        .markdown-alert>:last-child {
+            margin-bottom: 0
+        }
+
+        .markdown-alert .markdown-alert-title {
+            display: flex;
+            font-weight: 500;
+            align-items: center;
+            line-height: 1
+        }
+
+        .markdown-alert .markdown-alert-title .octicon {
+            margin-right: 0.5rem;
+            display: inline-block;
+            overflow: visible !important;
+            vertical-align: text-bottom;
+            fill: currentColor;
+        }
+
+        .markdown-alert.markdown-alert-note {
+            border-left-color: var(--color-note);
+        }
+
+        .markdown-alert.markdown-alert-note .markdown-alert-title {
+            color: var(--color-note);
+        }
+
+        .markdown-alert.markdown-alert-important {
+            border-left-color: var(--color-important);
+        }
+
+        .markdown-alert.markdown-alert-important .markdown-alert-title {
+            color: var(--color-important);
+        }
+
+        .markdown-alert.markdown-alert-warning {
+            border-left-color: var(--color-warning);
+        }
+
+        .markdown-alert.markdown-alert-warning .markdown-alert-title {
+            color: var(--color-warning);
+        }
+
+        .markdown-alert.markdown-alert-tip {
+            border-left-color: var(--color-tip);
+        }
+
+        .markdown-alert.markdown-alert-tip .markdown-alert-title {
+            color: var(--color-tip);
+        }
+
+        .markdown-alert.markdown-alert-caution {
+            border-left-color: var(--color-caution);
+        }
+
+        .markdown-alert.markdown-alert-caution .markdown-alert-title {
+            color: var(--color-caution);
+        }
+    </style>
+
 </head>
 
-<body class="mdui-typo">
-    <h1 class="mdui-typo">音乐播放器示例站点 by <a target="_blank"
-            href="https://github.com/XiaoFeng-QWQ/music-player/">https://github.com/XiaoFeng-QWQ/music-player/</a></h1>
-
-    <button class="mdui-btn mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#music-player-settings'}">
+<body class="vscode-body vscode-light">
+    <h1 id="music-player-音乐播放器--一个集成了aplayer音乐播放器--jquery网页dom操作">XQFMusicPlayer 音乐播放器 <br> 一个集成了<a
+            href="https://github.com/DIYgod/APlayer">APlayer(音乐播放器)</a> + 自定义设置</h1>
+    <h2 id="演示地址"><a href="https://www.dfggmc.top/">演示地址</a></h2>
+    <button class="XQFMusicPlayer-open-settings" id="XQFMusicPlayer-open-settings-btn">
         打开音乐播放器设置
     </button>
+    <p><img src="https://s21.ax1x.com/2025/07/20/pV8nm9K.png" alt="效果图"></p>
+    <h2 id="如何使用">如何使用？</h2>
+    <pre><code class="language-html">
+<span class="hljs-comment">&lt;!-- 任意元素加上 id=&quot;XQFMusicPlayer-open-settings-btn&quot; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;XQFMusicPlayer-open-settings-btn&quot;</span>&gt;</span>
+    打开音乐播放器设置
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
-    <div id="music-player-container"></div>
+<span class="hljs-comment">&lt;!-- 引入aplayerCSS --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> /&gt;</span>
+<span class="hljs-comment">&lt;!-- 引入js --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js&quot;</span>
+    <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;application/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js&quot;</span>
+    <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;application/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;XQFMusicPlayer.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- 或者通过JS控制 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+    <span class="hljs-comment">// 获取当前配置</span>
+    <span class="hljs-keyword">const</span> config = <span class="hljs-title class_">XQFMusicPlayer</span>.<span class="hljs-title function_">getConfig</span>();
 
-    <script src="main.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
-    <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
-    <script>
-        // 新建类
-        const musicPlayer = new MusicPlayerSettings();
-        // 调用主函数
-        musicPlayer.main();
-    </script>
+    <span class="hljs-comment">// 更新配置</span>
+    <span class="hljs-title class_">XQFMusicPlayer</span>.<span class="hljs-title function_">updateConfig</span>({
+        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">listId</span>: <span class="hljs-string">&quot;123456&quot;</span>,
+        <span class="hljs-attr">server</span>: <span class="hljs-string">&quot;tencent&quot;</span>
+    });
+
+    <span class="hljs-comment">// // 销毁播放器</span>
+    <span class="hljs-title class_">XQFMusicPlayer</span>.<span class="hljs-title function_">destroy</span>();
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- 完成! --&gt;</span>
+</code></pre>
+    <h2 id="欢迎提交issues">欢迎提交<a href="https://github.com/XiaoFeng-QWQ/music-player/issues">issues</a></h2>
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"
+        type="application/javascript"></script>
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"
+        type="application/javascript"></script>
+    <script src="XQFMusicPlayer.js"></script>
 </body>
 
 </html>

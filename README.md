@@ -1,35 +1,40 @@
-# Music-player 音乐播放器 <br> 一个集成了[APlayer(音乐播放器)](https://github.com/DIYgod/APlayer) + [MDUI(设置UI)](https://github.com/zdhxiong/mdui) + [jquery(网页DOM操作)](https://github.com/jquery/jquery)
+# XQFMusicPlayer 音乐播放器 <br> 一个集成了[APlayer(音乐播放器)](https://github.com/DIYgod/APlayer) + 自定义设置
 
 ## [演示地址](https://www.dfggmc.top/)
 
-![效果图](/preview.png)
-![效果图2](/preview%20(2).png)
+![效果图](https://s21.ax1x.com/2025/07/20/pV8nm9K.png)
 
 ## 如何使用？
 ```html
 
-<!-- 任意元素加上 mdui-dialog="{target: '#music-player-settings'}" -->
-<button class="mdui-btn mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#music-player-settings'}">
+<!-- 任意元素加上 id="XQFMusicPlayer-open-settings-btn" -->
+<button id="XQFMusicPlayer-open-settings-btn">
     打开音乐播放器设置
 </button>
 
-<!-- 添加ID为 music-player-container 元素 -->
-<div id="music-player-container"></div>
-
-<!-- 引入 -->
-
+<!-- 引入aplayerCSS -->
+<link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" type="text/css" rel="stylesheet" />
 <!-- 引入js -->
-<script src="mian.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
-<script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"
+    type="application/javascript"></script>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"
+    type="application/javascript"></script>
+<script src="XQFMusicPlayerSettings.js"></script>
+<!-- 或者通过JS控制 -->
 <script>
-    // 新建类
-    const musicPlayer = new MusicPlayerSettings();
-    // 调用主函数
-    musicPlayer.main();
-</script>
+    // 获取当前配置
+    const config = XQFMusicPlayer.getConfig();
 
+    // 更新配置
+    XQFMusicPlayer.updateConfig({
+        enable: true,
+        listId: "123456",
+        server: "tencent"
+    });
+
+    // // 销毁播放器
+    XQFMusicPlayer.destroy();
+</script>
 <!-- 完成! -->
 ```
 
